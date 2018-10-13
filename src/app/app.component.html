@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-5">
+            <div class="form-group">
+                <label for="sel1">Select Data Set:</label>
+                <select class="form-control" (change) ="onDataSelect($event)" id="sel1">
+                    <option>Data 1</option>
+                    <option>Data 2</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <p>
+                <button class="btn btn-primary" (click) ="onStartCrawl()">Start Crawling!</button>
+            </p>
+        </div>
+    </div>
+    <hr/>
+    <div *ngIf ="testClicked" class="row">
+        <h2>Results</h2>
+        <div  class="col-xs-4">
+            <p>Success:</p>
+            <ul class ="list-group">
+                <li class ="list-group-item" *ngFor ="let link of success">{{link}}</li>
+            </ul>
+        </div>
+        <div *ngIf ="testClicked" class="col-xs-4">
+            <p>Skipped:</p>
+            <ul class ="list-group">
+                <li class ="list-group-item" *ngFor ="let link of skipped">{{link}}</li>
+            </ul>
+        </div>
+        <div *ngIf ="testClicked" class="col-xs-4">
+            <p>Invalid:</p>
+            <ul class ="list-group">
+                <li class ="list-group-item" *ngFor ="let link of inValid">{{link}}</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
