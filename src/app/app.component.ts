@@ -20,7 +20,7 @@ export class AppComponent {
     }
 
     onDataSelect(event) {
-        if (event.target.value == 'Data 1') {
+        if (event.target.value === 'Data 1') {
             this.linkData = this.linksService.getData1();
         } else {
             this.linkData = this.linksService.getData2();
