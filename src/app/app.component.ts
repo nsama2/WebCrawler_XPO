@@ -5,8 +5,9 @@ import { LinksService } from './links.service';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    providers: [LinksService],
+    providers: [LinksService]
 })
+
 export class AppComponent {
     testClicked = false;
     success     = [];
@@ -71,7 +72,7 @@ export class AppComponent {
 
             pagesVisited.push(url);
 
-            var index = addresses.indexOf(url);
+            let index = addresses.indexOf(url);
             if (index >= 0) {
                 validPages.push(url);
                 collectInternalLinks(index);
@@ -79,13 +80,13 @@ export class AppComponent {
             } else {
                 inValid.push(url);
                 if (pagesToVisit.length > 0) {
-                    crawl();
+                    callback();
                 }
             }
         }
 
         function collectInternalLinks(index) {
-            var links = webdata[index].links;
+            let links = webdata[index].links;
             links.forEach(function (lnk) {
                 pagesToVisit.push(lnk);
             });
