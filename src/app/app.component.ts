@@ -92,7 +92,7 @@ export class AppComponent {
 
         function collectInternalLinks(index) {
             let links = webdata[index].links;
-            link.map(function(x){
+            links.map(function(x){
                 pagesToVisit.push(x);
             })
             //links.forEach(function (lnk) {
