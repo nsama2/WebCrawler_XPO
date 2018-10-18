@@ -64,23 +64,32 @@ export class AppComponent {
                 }
                 crawl();
             } else {
-                visitPage(nextPage, crawl);
+                //visitPage(nextPage, crawl);
+                let index = addresses.indexOf(nextPage);
+                if (index >= 0) {
+                    validPages.push(nextPage);
+                    collectInternalLinks(index);
+                } else {
+                    inValid.push(nextPage);
+                }
+                crawl();
+
             }
         }
 
-        function visitPage(url, callback) {
-
-            pagesVisited.push(url);
-
-            let index = addresses.indexOf(url);
-            if (index >= 0) {
-                validPages.push(url);
-                collectInternalLinks(index);
-            } else {
-                inValid.push(url);
-            }
-            callback();
-        }
+        //function visitPage(url, callback) {
+        //
+        //    pagesVisited.push(url);
+        //
+        //    let index = addresses.indexOf(url);
+        //    if (index >= 0) {
+        //        validPages.push(url);
+        //        collectInternalLinks(index);
+        //    } else {
+        //        inValid.push(url);
+        //    }
+        //    callback();
+        //}
 
         function collectInternalLinks(index) {
             let links = webdata[index].links;
