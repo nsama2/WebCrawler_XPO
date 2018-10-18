@@ -40,11 +40,14 @@ export class AppComponent {
             me           = this;
 
         pagesToVisit.push(url);
+        webdata.map(function(x){
+            addresses.push(x.address);
+        });
 
-
-        for (let addrs of webdata) {
-            addresses.push(addrs.address);
-        }
+        //for (let addrs of webdata) {
+        //
+        //    addresses.push(addrs.address);
+        //}
 
         crawl();
 
@@ -92,12 +95,9 @@ export class AppComponent {
 
         function collectInternalLinks(index) {
             let links = webdata[index].links;
-            links.map(function(x){
-                pagesToVisit.push(x);
-            })
-            //links.forEach(function (lnk) {
-            //    pagesToVisit.push(lnk);
-            //});
+            links.forEach(function (lnk) {
+                pagesToVisit.push(lnk);
+            });
 
         }
     }
