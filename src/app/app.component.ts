@@ -56,7 +56,7 @@ export class AppComponent {
                 me.skipped = duplicates;
                 return ;
             }
-            var nextPage = pagesToVisit.pop();
+            let nextPage = pagesToVisit.pop();
 
             if (pagesVisited.includes(nextPage)) {
                 if (!duplicates.includes(nextPage)) {
