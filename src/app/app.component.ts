@@ -62,7 +62,6 @@ export class AppComponent {
                 if (!duplicates.includes(nextPage)) {
                     duplicates.push(nextPage);
                 }
-                crawl();
             } else {
                 //visitPage(nextPage, crawl);
                 let index = addresses.indexOf(nextPage);
@@ -72,9 +71,9 @@ export class AppComponent {
                 } else {
                     inValid.push(nextPage);
                 }
-                crawl();
-
             }
+
+            crawl();
         }
 
         //function visitPage(url, callback) {
