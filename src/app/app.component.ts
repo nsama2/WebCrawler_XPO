@@ -40,8 +40,9 @@ export class AppComponent {
             me           = this;
 
         pagesToVisit.push(url);
-        webdata.map(function(x){
-            addresses.push(x.address);
+
+        addresses = webdata.map(function(x){
+            return x.address;
         });
 
         //for (let addrs of webdata) {
