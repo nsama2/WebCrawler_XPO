@@ -31,7 +31,7 @@ export class AppComponent {
 
     WebCrawl(webdata) {
         let url = webdata[0].address,
-            pagesVisited = [],
+            pagesVisited = {},
             pagesToVisit = [],
             addresses    = [],
             inValid      = [],
@@ -62,12 +62,13 @@ export class AppComponent {
             }
             let nextPage = pagesToVisit.pop();
 
-            if (pagesVisited.includes(nextPage)) {
+            if (pagesVisited[nextPage]) {
                 if (!duplicates.includes(nextPage)) {
                     duplicates.push(nextPage);
                 }
             } else {
                 //visitPage(nextPage, crawl);
+                pagesVisited[nextPage] = nextPage;
                 let index = addresses.indexOf(nextPage);
                 if (index >= 0) {
                     validPages.push(nextPage);
